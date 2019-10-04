@@ -49,13 +49,17 @@ export default class Home extends Component {
             <Button
               title="Search Wallpapers"
               onPress={() =>
-                navigate('SearchImages', {query: this.state.search})
+                this.state.search === '' ? (
+                  <Text>Enter Search Query</Text>
+                ) : (
+                  navigate('SearchImages', {query: this.state.search})
+                )
               }
             />
           </View>
           <View style={styles.btn2}>
             <Button
-              style={{backgroundColor: 'red'}}
+              style={{color: 'red'}}
               title="Random Wallpapers"
               onPress={() => navigate('RandomPics')}
             />
